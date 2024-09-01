@@ -75,6 +75,18 @@ body json:
 }
 __________________________________
 
+### Unitary test
+
+To run unitary tests with Jest make sure to install:
+
+```bash
+npm install --save-dev jest
+```
+Then run the tests
+```bash
+npm test
+```
+
 ### Troubleshooting
 
 -   **Docker Issues**: Ensure Docker is running and that you have enough resources allocated (e.g., memory and CPU) for the containers.
