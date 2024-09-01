@@ -20,7 +20,7 @@ cd reactNative_Backend
 
 ### 3. Set Up Environment Variables
 
-Create a `.env` file in the root directory of the project. This file will store sensitive information and environment variables. having in mind this is just a test app and the following env worksamulate the app work. 
+Create a `.env` file in the root directory of the project. This file will store sensitive information and environment variables. having in mind this is just a test app and the following env works for en Android emulator. 
 Use the following template to create your `.env` file:
 
 ```bash
@@ -57,6 +57,23 @@ This command will start the MongoDB container and the backend container. MongoDB
 Once Docker Compose has started the containers, the backend should be running and accessible on `http://localhost:3000`.
 
 To verify that everything is working correctly, you can test the API endpoints using a tool like Postman or insomnia.
+
+For testing fetch:
+
+GET http://localhost:3000/api/tasks
+__________________________________
+
+For testing Create:
+
+POST http://localhost:3000/api/tasks
+
+body json:
+{
+  "title": "Nueva tarea test",
+  "description": "Descripción de la nueva tarea",
+  "completed": false
+}
+__________________________________
 
 ### Troubleshooting
 
