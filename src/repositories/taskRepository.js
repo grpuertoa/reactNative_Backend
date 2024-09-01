@@ -10,9 +10,13 @@ const getTaskById = async (id) => {
 };
 
 const createTask = async (taskData) => {
-  const task = new Task(taskData);
-  return await task.save();
-};
+    try {
+      const newTask = await Task.create(taskData);
+      return newTask;
+    } catch (error) {
+      throw new Error('Error creating task');
+    }
+  };
 
 const updateTask = async (id, updateData) => {
   return await Task.findByIdAndUpdate(id, updateData, { new: true });

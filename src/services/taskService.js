@@ -13,13 +13,29 @@ const createTask = async (taskData) => {
   return await taskRepository.createTask(taskData);
 };
 
-const updateTask = async (id, updateData) => {
-  return await taskRepository.updateTask(id, updateData);
+const updateTask = async (id, taskData) => {
+  try {
+    const updatedTask = await taskRepository.updateTask(id, taskData);
+    if (!updatedTask) {
+      throw new Error('Task not found');
+    }
+    return updatedTask; 
+  } catch (error) {
+    throw new Error(`Error updating task: ${error.message}`);
+  }
 };
 
 const deleteTask = async (id) => {
-  return await taskRepository.deleteTask(id);
-};
+    try {
+      const deletedTask = await taskRepository.deleteTask(id);
+      if (!deletedTask) {
+        throw new Error('Task not found');
+      }
+      return deletedTask;
+    } catch (error) {
+      throw new Error(`Error deleting task: ${error.message}`);
+    }
+  };
 
 module.exports = {
   getAllTasks,
